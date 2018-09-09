@@ -12,7 +12,8 @@ import React from "react";
 
 const MyMapComponent = compose(
   withProps({
-    googleMapURL: "",
+    googleMapURL:
+      "",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `600px` }} />,
     mapElement: <div style={{ height: `100%` }} />

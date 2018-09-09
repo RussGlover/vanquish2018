@@ -111,21 +111,6 @@ class YourLocation extends React.Component {
           )
             .then(r => r.json())
             .then(d => {
-              /* const routeCoordinates = [
-              {
-                lat: this.state.lat,
-                lng: this.state.lng
-              },
-              {
-                lat: this.state.lat + 0.01,
-                lng: this.state.lng + 0.01
-              },
-              {
-                lat: this.state.lat + 0.025,
-                lng: this.state.lng
-              }
-            ]; */
-              console.info(d);
               const routeCoordinates = d.features[0].geometry.coordinates.reduce(
                 (accumulator, currVal) => {
                   accumulator.push({

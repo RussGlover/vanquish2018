@@ -8,6 +8,7 @@
     "npm": "^6.4.1",
     "prettier": "^1.14.2",
     "react": "^16.4.2",
+    "react-animated-weather": "^1.0.3",
     "react-dom": "^16.4.2",
     "react-geolocated": "^2.4.0",
     "react-google-maps": "^9.4.5",

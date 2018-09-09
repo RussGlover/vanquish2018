@@ -3,7 +3,6 @@ import React from "react";
 import {
   AppBar,
   Toolbar,
-  IconButton,
   Typography,
   Drawer,
   ExpansionPanel,
@@ -12,14 +11,18 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText
+  ListItemText,
+  Grid
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 import TrafficIcon from "@material-ui/icons/Traffic";
 import CwIcon from "@material-ui/icons/DirectionsWalk";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import GradeIcon from "@material-ui/icons/Grade";
+import GroupIcon from "@material-ui/icons/Group";
+import WarningIcon from "@material-ui/icons/Warning";
 import { appStep } from "./YourLocation";
 import { withStyles } from "@material-ui/core/styles";
+import ReactAnimatedWeather from "react-animated-weather";
 
 const styles = theme => ({
   root: {
@@ -31,7 +34,7 @@ const styles = theme => ({
     display: "flex"
   },
   drawerPaper: {
-    width: "15%"
+    width: "20%"
   },
   content: {
     flexGrow: 1,
@@ -89,7 +92,7 @@ class MapUIWrapper extends React.Component {
           variant="permanent"
           anchor={"left"}
           open={this.props.isDrawerOpen}
-          style={{ zIndex: 2, width: "15%" }}
+          style={{ zIndex: 2, width: "20%" }}
           classes={{
             paper: classes.drawerPaper
           }}
@@ -100,9 +103,16 @@ class MapUIWrapper extends React.Component {
             onChange={this.handlePanelExpand("panel1")}
           >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="subheading">
-                Stroll Score: {this.props.routeScore}
-              </Typography>
+              <Grid container spacing={8}>
+                <Grid item>
+                  <GradeIcon />
+                </Grid>
+                <Grid item>
+                  <Typography variant="subheading">
+                    Stroll Score: {this.props.routeScore}
+                  </Typography>
+                </Grid>
+              </Grid>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <List dense>
@@ -126,11 +136,18 @@ class MapUIWrapper extends React.Component {
             onChange={this.handlePanelExpand("panel2")}
           >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="subheading">Weather: Good</Typography>
+              <Grid container spacing={8}>
+                <Grid item>
+                  <ReactAnimatedWeather icon={"RAIN"} size={24} />
+                </Grid>
+                <Grid item>
+                  <Typography variant="subheading">Weather</Typography>
+                </Grid>
+              </Grid>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography variant="body1">
-                The weather today is sunny. 2% PoP.
+                The weather today is rainy.
               </Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>
@@ -139,7 +156,14 @@ class MapUIWrapper extends React.Component {
             onChange={this.handlePanelExpand("panel3")}
           >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="subheading">Social Strollers</Typography>
+              <Grid container spacing={8}>
+                <Grid item>
+                  <GroupIcon />
+                </Grid>
+                <Grid item>
+                  <Typography variant="subheading">Social Strollers</Typography>
+                </Grid>
+              </Grid>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography variant="body1">
@@ -152,23 +176,17 @@ class MapUIWrapper extends React.Component {
             onChange={this.handlePanelExpand("panel4")}
           >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="subheading">Report An Issue</Typography>
+              <Grid container spacing={8}>
+                <Grid item>
+                  <WarningIcon />
+                </Grid>
+                <Grid item>
+                  <Typography variant="subheading">Report An Issue</Typography>
+                </Grid>
+              </Grid>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography>Report an issue or concern on your route</Typography>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-          <ExpansionPanel
-            expanded={this.state.expanded === "panel5"}
-            onChange={this.handlePanelExpand("panel5")}
-          >
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="subheading">Show/Hide Layers</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Typography variant="body1">
-                Construction: x Schools: x Traffic Lights: x Crosswalks: x
-              </Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>
         </Drawer>
