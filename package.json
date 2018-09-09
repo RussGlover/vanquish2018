@@ -1,0 +1,24 @@
+{
+  "name": "vanquish",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "global": "^4.3.2",
+    "google-maps-react": "^2.0.2",
+    "npm": "^6.4.1",
+    "prettier": "^1.14.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-geolocated": "^2.4.0",
+    "react-google-maps": "^9.4.5",
+    "react-scripts": "1.1.5",
+    "recompose": "^0.30.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "format": "prettier --single-quote --trailing-comma es5 --write \"{src,__{tests,mocks}__}/**/*.js\""
+  }
+}
